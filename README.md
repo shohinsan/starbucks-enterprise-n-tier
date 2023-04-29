@@ -184,13 +184,13 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/shohinsan/readme.svg?style=for-the-badge
 [contributors-url]: https://github.com/shohinsan/starbucks-enterprise-n-tier/graphs/contributors
-[forks-shield]: https://img.shields.io/github/contributors/shohinsan/readme.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/shohinsan/readme.svg?style=for-the-badge
 [forks-url]: https://github.com/shohinsan/starbucks-enterprise-n-tier/forks
-[stars-shield]: https://img.shields.io/github/contributors/shohinsan/readme.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/shohinsan/readme.svg?style=for-the-badge
 [stars-url]: https://github.com/shohinsan/starbucks-enterprise-n-tier/stargazers
-[issues-shield]: https://img.shields.io/github/contributors/shohinsan/readme.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/shohinsan/readme.svg?style=for-the-badge
 [issues-url]: https://github.com/shohinsan/starbucks-enterprise-n-tier/issues
-[license-shield]: https://img.shields.io/github/contributors/shohinsan/readme.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/shohinsan/readme.svg?style=for-the-badge
 [license-url]: https://github.com/shohinsan/starbucks-enterprise-n-tier/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/shohin-abdulkhamidov/
