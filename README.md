@@ -63,7 +63,7 @@ Consists of:
 * B
 * C
 
-Of course, D
+And, of course, D
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,8 +84,6 @@ Of course, D
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -94,17 +92,141 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+* Maven Dependencies
   ```sh
-  npm install npm@latest -g
+  mvn package
   ```
+  
+* Postman Import
+  - spring-starbucks-kong-collection.json
+  - starbucks-kong-environment.json
+  
+* Docker Desktop
+  - MySQL
+  - Kong API
+  - Starbucks API
+  - Starbucks Cashier
+
+* Mobile CLI
+  - cd project_folder
+  
+  ```
+  java -cp starbucks-app.jar -Dapiurl="http://localhost:8080" -Dapikey="2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ" -Dregister="5012349" starbucks.Main 2>debug.log
+  ```
+
 
 ### Installation
 
+#### starbucks-api 
+
+1. Create Network Bridge 
+`docker network create --driver bridge starbucks`
+2. Create Kong API Docker Instance
+```
+docker run --platform=linux/amd64 -d --name kong \
+     --network=starbucks \
+     -e "KONG_DATABASE=off" \
+     -e "KONG_PROXY_ACCESS_LOG=/dev/stdout" \
+     -e "KONG_ADMIN_ACCESS_LOG=/dev/stdout" \
+     -e "KONG_PROXY_ERROR_LOG=/dev/stderr" \
+     -e "KONG_ADMIN_ERROR_LOG=/dev/stderr" \
+     -e "KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl" \
+     -p 80:8000 \
+     -p 443:8443 \
+     -p 127.0.0.1:8001:8001 \
+     -p 127.0.0.1:8444:8444 \
+     kong:2.4.0
+```
+3. Create Kong Config File
+```
+	docker exec -it kong kong config init /home/kong/kong.yml
+	docker exec -it kong cat /home/kong/kong.yml >> kong-initial.yml
+```
+4. Cmd + A , and replace kong.yaml with the following:
+```
+_format_version: "1.1"
+
+services:
+- name: starbucks
+  protocol: http
+  host: starbucks-api
+  port: 8080
+  path: /
+  plugins:
+  - name: key-auth  
+  routes:
+  - name: api
+    paths:
+    - /api
+consumers:
+- username: apiclient
+  keyauth_credentials:
+  - key: 2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ
+```
+5. Install HTTPIE on your local machine:
+```
+brew install httpie
+```
+6. Create MySQL instance in Docker
+```
+docker run --platform=linux/amd64 -d --network starbucks --name mysql -td -p 3306:3306 -e MYSQL_ROOT_PASSWORD=cmpe172 mysql:8.0
+```
+7. Create MySQL user
+```
+login:
+- mysql -u root -p
+- cmpe172
+create:
+- create database starbucks;
+- create user 'admin'@'%' identified by 'cmpe172'; 
+- grant all on starbucks.* to 'admin'@'%';
+```
+8. Test httpie (Kong supports GET request only)
+```
+- http GET :8001/status
+- http GET :8001/config config=@kong.yaml
+- http --ignore-stdin :8001/config config=@kong.yaml
+```
+9. Reload Kong Config
+```
+docker exec -it kong kong reload
+```
+10. Continue testing httpie:
+```
+- http localhost/api/ping
+- http GET localhost/api/ping key:2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ
+```
+11. Create starbucks-api Instance
+```
+docker run --platform=linux/amd64 -d --name starbucks-api \
+    --network kong-network -td -e env=dev \
+    spring-starbucks-api \
+    java -jar -Dspring.profiles.active=dev /srv/spring-starbucks-api-3.1.jar
+``` 
+
+#### starbucks-cashier
+1. Create cashier instance
+```
+docker run --platform=linux/amd64 --network starbucks -e "MYSQL_HOST=mysql" --name starbucks-cashier -td -p 9090:9090 starbucks-cashier
+```
+
+#### Docker Desktop
+1. Install HTTPIE (everytime to test apikey)
+```
+apt-get update && apt-get install -y httpie
+```
+2. Test apikey
+```
+- http GET localhost:8080/ping apikey:2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ
+- curl http://localhost:8080/ping
+```
+
+#### SQL Queries
+1. Access Data Source in IntelliJ
+
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Register a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
@@ -122,10 +244,12 @@ _Below is an example of how you can instruct your audience on installing and set
 
 
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE -->
+
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+- Run `starbucks-api` sub-project before running `starbucks-cashier`
+- Send card request from `starbucks-client` to `starbucks-cashier`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
