@@ -44,7 +44,7 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#journal">Journal</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -127,24 +127,41 @@ _Below is an example of how you can instruct your audience on installing and set
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] English
-    - [ ] Spanish
+- [ ] Docker Demo
+    - [x] Show the Starbucks API "Kong API Gateway" endpoint and API being used.  Demo this via a CURL ping test to API.
+    - [x] Show the launch manifest / configuration for Starbucks Cash Register confirming connection to API via Kong with API Key
+    - [ ] Start up and Log into your Starbucks Cash Register App (your ported Spring MVC version)
+    - [ ] Show the launch command to run Starbucks "Mobile" App with connection to the same Kong API Gateway and API Key
+    - [ ] Start up the "Starbucks Mobile App" pointing out the "Store/Register" ID being used
+    - [ ] Connect to Backend MySQL Database and query the "New Starbucks Card" created by Starbucks Mobile App
+    - [x] Query to show the Card Number, Card Code and starting Balance in "Activated Status"
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+- [ ] Google Cloud Demo
+    - [ ] A
+    - [ ] B
+    - [ ] C
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- Journal -->
+## Journal
+
+`Day 1`
+`Day 2`
+`Day 3`
+`Day 4`
+`Day 5`
+`Day 6`
+`Day 7`
+`Day 8`
+`Day 9`
+`Day 10`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -152,15 +169,6 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Shohin Abdulkhamidov - [LinkedIn](https://www.linkedin.com/in/shohin-abdulkhamidov/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
