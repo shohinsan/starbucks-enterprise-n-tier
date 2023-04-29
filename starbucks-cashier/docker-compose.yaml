@@ -1,0 +1,60 @@
+version: "3"
+
+services:
+  redis:
+    image: redis
+    platform: linux/amd64
+    networks:
+      - network
+    restart: always
+  mysql:
+    image: mysql:8.0
+    platform: linux/amd64
+    ports:
+      - "3306:3306"
+    networks:
+      - network
+    environment:
+      MYSQL_ROOT_PASSWORD: "cmpe172"
+      MYSQL_USER: "admin"
+      MYSQL_PASS: "cmpe172"
+      REDIS_HOST: "redis"
+      REDIS_PASSWORD: "cmpe172"
+    restart: always
+  cashier:
+    image: starbucks-cashier
+    platform: linux/amd64
+    depends_on:
+      - mysql
+    networks:
+      - network
+    ports:
+      - "9090"
+    environment:
+      MYSQL_HOST: "mysql"
+    restart: always
+  lb:
+    image: eeacms/haproxy
+    platform: linux/amd64
+    depends_on:
+      - cashier
+    ports:
+      - "80:5000"
+      - "1936:1936"
+    environment:
+      BACKENDS: "cashier"
+      BACKENDS_PORT: "9090"
+      DNS_ENABLED: "true"
+      COOKIES_ENABLED: "false"
+      LOG_LEVEL: "info"
+    networks:
+      - network
+
+volumes:
+  schemas:
+    external: false
+
+networks:
+  network:
+    driver: bridge
+

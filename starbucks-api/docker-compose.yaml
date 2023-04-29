@@ -1,0 +1,72 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8.0
+    platform: linux/amd64
+    volumes:
+      - /tmp:/tmp
+    networks:
+      - network
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "cmpe172"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "cmpe172"
+    restart: always
+
+  starbucks:
+    image: insidious000/spring-starbucks-api:v3.1
+    platform: linux/amd64
+    depends_on:
+      - mysql
+    networks:
+      - network
+    ports:
+      - "8081:8080"
+    environment:
+      MYSQL_HOST: "mysql"
+    restart: always
+
+  kong:
+    image: kong:latest
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "8000:8000"
+      - "8443:8443"
+      - "8001:8001"
+    environment:
+      KONG_DATABASE: "off"
+      KONG_PROXY_ACCESS_LOG: "/dev/stdout"
+      KONG_ADMIN_ACCESS_LOG: "/dev/stdout"
+      KONG_PROXY_ERROR_LOG: "/dev/stderr"
+      KONG_ADMIN_ERROR_LOG: "/dev/stderr"
+      KONG_ADMIN_LISTEN: "0.0.0.0:8001, 0.0.0.0:8444 ssl"
+
+  lb:
+    image: eeacms/haproxy
+    platform: linux/amd64
+    depends_on:
+      - starbucks
+    ports:
+      - "80:5000"
+      - "1936:1936"
+    environment:
+      BACKENDS: "starbucks"
+      BACKENDS_PORT: "8080"
+      DNS_ENABLED: "true"
+      COOKIES_ENABLED: "false"
+      LOG_LEVEL: "info"
+    networks:
+      - network
+
+volumes:
+  schemas:
+    external: false
+
+networks:
+  network:
+    driver: bridge

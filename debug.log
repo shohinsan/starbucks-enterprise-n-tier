@@ -1,0 +1,127 @@
+{"balance":20,"cardCode":"162","cardNumber":"632721251","activated":false,"status":"New Card"}
+New Card: 632721251[162] Balance: 20.0
+Status: 200 
+{"balance":20,"cardCode":"162","cardNumber":"632721251","activated":true,"status":"New Card"}
+============================================
+--------- D E V I C E  S T A T E  ----------
+============================================
+Pin Option    = 4
+Stored Pin    = 1234
+Authenticated = false
+Orientation   = PORTRAIT
+API URL       = http://localhost:8080
+API KEY       = 2742a237475c4703841a2bf906531eb0
+API Register  = 5012349
+============================================
+Screen: starbucks.Passcode
+Screen: starbucks.Spacer
+Screen: starbucks.KeyPad
+Value: [Ljava.lang.String;@659499f1
+KeyPad Touched at (1, 5)
+Key: 1
+Key: 1 Count: 1
+Current State: starbucks.OnePinDigit
+D1 = 1
+D2 = 
+D3 = 
+D4 = 
+Screen: starbucks.Passcode
+Screen: starbucks.Spacer
+Screen: starbucks.KeyPad
+Value: [Ljava.lang.String;@51e69659
+KeyPad Touched at (2, 5)
+Key: 2
+Key: 2 Count: 2
+Current State: starbucks.TwoPinDigits
+D1 = 1
+D2 = 2
+D3 = 
+D4 = 
+Screen: starbucks.Passcode
+Screen: starbucks.Spacer
+Screen: starbucks.KeyPad
+Value: [Ljava.Exception in thread "main" java.io.IOError: java.io.IOException: Input/output error
+	at java.base/java.io.Console.readLine(Console.java:257)
+	at java.base/java.io.Console.readLine(Console.java:275)
+	at starbucks.Main.main(Main.java:37)
+Caused by: java.io.IOException: Input/output error
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+
+D3 = 3
+D4 = 4
+Authenticating...
+Successful Login!
+l: 10
+w: 15
+h: 15
+DEBUG: $20.00
+
+cnt1: 1
+pad1: 4
+....
+DEBUG: [Ljava.lang.String;@272113c4 1
+line (before): $20.00 [len = 6]
+line (after):      $20.00 [pad = 5]
+cnt2: 5
+pad2: 5
+.....
+
+
+0: ===============
+1:    MyCards
+2: ===============
+3: 
+4: 
+5: 
+6: 
+7:      $20.00
+8: 
+9: 
+10: 
+11: 
+12: 
+13: 
+14: ===============
+15: [A][B][C][D][E]
+Value: [Ljava.lang.String;@771a660
+l: 10
+w: 15
+h: 15
+DEBUG: [632721251]
+
+
+Scan Now
+
+cnt1: 4
+pad1: 3
+...
+DEBUG: [Ljava.lang.String;@5a45133e 4
+line (before): [632721251] [len = 11]
+line (after):   [632721251] [pad = 2]
+line (before):  [len = 0]
+line (after):          [pad = 8]
+line (before):  [len = 0]
+line (after):          [pad = 8]
+line (before): Scan Now [len = 8]
+line (after):     Scan Now [pad = 4]
+cnt2: 7
+pad2: 3
+...
+
+
+0: ===============
+1:   MyCardsPay
+2: ===============
+3: 
+4: 
+5: 
+6:   [632721251]
+7:         
+8:         
+9:     Scan Now
+10: 
+11: 
+12: 
+13: 
+14: ===============
+15: [A][B][C][D][E]
