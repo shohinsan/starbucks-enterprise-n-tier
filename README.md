@@ -209,6 +209,16 @@ docker run --platform=linux/amd64 -d --name starbucks-api \
     java -jar -Dspring.profiles.active=dev /srv/spring-starbucks-api-3.1.jar
 ``` 
 
+#### Once you're done with docker, modify MySQL used in localhost to Google's Cloud SQL
+1. Cloud SQL command
+```
+gcloud sql connect mysql8 --user=root --quiet
+```
+2. Login to MySQL
+```
+mysql -u private-ip -p -h <INSTANCE_CONNECTION_NAME>:db-name
+```
+
 #### starbucks-cashier
 1. Create cashier instance
 ```
@@ -247,7 +257,15 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
+#### starbucks-app
+* Login
+  * touch(1,5)
+  * touch(2,5)
+  * touch(3,5)
+  * touch(1,6)
+* Scan Order
+  * touch (2,2)
+  * touch (3,3)
 
 <!-- USAGE -->
 
