@@ -11,8 +11,8 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-/* 
-    https://spring.io/guides/tutorials/rest/ 
+/*
+    https://spring.io/guides/tutorials/rest/
     https://www.baeldung.com/building-a-restful-web-service-with-spring-and-java-based-configuration
 */
 
@@ -47,16 +47,12 @@ public class StarbucksOrderController {
         return msg;
     }
 
-    // TODO: Add a "Get Order by ID" endpoint
-
     /* Create a New Starbucks Order */
     @PostMapping("/order/register/{regid}")
     @ResponseStatus(HttpStatus.CREATED)
     StarbucksOrder newOrder(@PathVariable String regid, @RequestBody StarbucksOrder order) {
         return service.newOrder(regid, order) ;
     }
-
-    /* Update an Existing Starbucks Order */
 
     /* Get Details of a Starbucks Order */
     @GetMapping("/order/register/{regid}")
@@ -68,8 +64,6 @@ public class StarbucksOrderController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Order Not Found!");
         }
     }
-
-    // TODO: Add a "Get Order by ID" endpoint
 
     /* Clear Active Order */
     @DeleteMapping("/order/register/{regid}")

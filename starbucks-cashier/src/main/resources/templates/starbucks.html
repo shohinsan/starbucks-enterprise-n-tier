@@ -1,145 +1,94 @@
-
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
 <html lang="en">
 <head>
-    <title>Starbucks Reserved</title>
-
-    <script type="text/javascript">
-        function selectedStore() {
-            const reg = document.getElementById("register").value;
-
-            // Send the selected register value to the server
-            // Database Response Debugger
-            fetch('/selectedStore?action=setSelectedStore&register=' + encodeURIComponent(reg), {
-                method: 'POST',
-            })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Success:', response);
-                    } else {
-                        console.error('Error:', response);
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-
-            switch(reg) {
-                case "5012349":
-                    document.getElementById("stores").options[0].selected=true
-                    break;
-                case "1287612":
-                    document.getElementById("stores").options[1].selected=true
-                    break;
-                case "6498234":
-                    document.getElementById("stores").options[2].selected=true
-                    break;
-                case "7812386":
-                    document.getElementById("stores").options[3].selected=true
-                    break;
-                case "8723098":
-                    document.getElementById("stores").options[4].selected=true
-                    break;
-                case "9621043":
-                    document.getElementById("stores").options[5].selected=true
-                    break;
-                case "1393478":
-                    document.getElementById("stores").options[6].selected=true
-                    break;
-                default:
-                    document.getElementById("stores").options[0].selected=true
-            }
-        }
-        function submitForm(action) {
-            const hiddenAction = document.getElementById("action");
-            hiddenAction.value = action;
-
-            // Set the values for the drink, milk, and size parameters based on user selections
-            // For example, you can use hardcoded values or get them from other elements on the page
-            const drinkInput = document.getElementById("drink");
-            const milkInput = document.getElementById("milk");
-            const sizeInput = document.getElementById("size");
-
-            drinkInput.value = "coffee"; // replace with the actual value based on user selection
-            milkInput.value = "whole";   // replace with the actual value based on user selection
-            sizeInput.value = "medium";  // replace with the actual value based on user selection
-
-            const form = document.getElementById("mainForm");
-            form.submit();
-        }
-    </script>
-
+    <title>Starbucks Cashier App</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
-<body onload="selectedStore()">
+<body>
+<div class="container">
+    <h1 class="text-center mt-2">Welcome to Starbucks Reserved (Docker Demo)</h1>
 
-<h1 align="center">Welcome to Starbucks Reserved (Docker Demo)</h1>
+    <!-- Starbucks Section -->
+    <form name="form" th:object="${command}" method="post" action="#" th:action="@{/}">
 
-<!-- FORM SECTION -->
+        <input type="hidden" name="state" id="state" value="{{state}}"/>
+        <input type="hidden" name="ts" id="ts" value="{{ts}}"/>
+        <input type="hidden" name="hash" id="hash" value="{{hash}}"/>
 
-<form name="form" th:object="${command}" method="post" action="" id="mainForm">
 
-    <input type="hidden" name="register" id="register" th:field="*{register}"/>
-    <input type="hidden" name="state" id="state" th:field="*{state}"/>
-    <input type="hidden" name="ts" id="ts" th:field="*{timestamp}"/>
-    <input type="hidden" name="hash" id="hash" th:field="*{hash}"/>
-    <input type="hidden" name="action" id="action" th:field="*{action}"/>
-    <input type="hidden" name="drink" id="drink" />
-    <input type="hidden" name="milk" id="milk" />
-    <input type="hidden" name="size" id="size" />
+        <div class="form-group">
+            <label for="message"></label>
+            <textarea name="message" class="form-control" rows="9" readonly id="message"
+                      th:text="${message}"></textarea>
+        </div>
 
-    <p>
-    <div align="center">
-        <label for="message"></label><textarea readonly id="message" name="message"
-                                               cols="50" rows="13" th:text="${message}"></textarea>
-    </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="register">Select Store:</label>
+                <select name="register" id="register" class="form-control" th:field="*{register}">
+                    <option value="5012349">Dub-C (5012349)</option>
+                    <option value="1287612">P-Town (1287612)</option>
+                    <option value="6498234">The City (6498234)</option>
+                    <option value="7812386">Eso (7812386)</option>
+                    <option value="8723098">The Dro (8723098)</option>
+                    <option value="9621043">Mateo (9621043)</option>
+                    <option value="1393478">Deadwood (1393478)</option>
+                </select>
+            </div>
 
-    <div align="center">
-        <label for="stores">Select Store:</label>
-        <select name="stores" id="stores">
-            <option value="5012349">Dub-C</option>
-            <option value="1287612">P-Town</option>
-            <option value="6498234">The City</option>
-            <option value="7812386">Eso</option>
-            <option value="8723098">The Dro</option>
-            <option value="9621043">Mateo</option>
-            <option value="1393478">Deadwood</option>
-        </select>
-    </div>
+            <div class="form-group col-md-3">
+                <label for="drink">Select Drink:</label>
+                <select name="drink" id="drink" class="form-control" th:field="*{drink}">
+                    <option value="Caffe Latte">Caffe Latte</option>
+                    <option value="Caffe Americano">Caffe Americano</option>
+                    <option value="Caffe Mocha">Caffe Mocha</option>
+                    <option value="Espresso">Espresso</option>
+                    <option value="Cappuccino">Cappuccino</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="size">Select Size:</label>
+                <select name="size" id="size" class="form-control" th:field="*{size}">
+                    <option value="Short">Short</option>
+                    <option value="Tall">Tall</option>
+                    <option value="Grande">Grande</option>
+                    <option value="Venti">Venti</option>
+                    <option value="Your Own Cup">Your Own Cup</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="milk">Milk Type:</label>
+                <select name="milk" id="milk" class="form-control" th:field="*{milk}">
+                    <option value="Whole">Whole</option>
+                    <option value="Soy">Soy</option>
+                    <option value="Nonfat">Non-fat</option>
+                    <option value="Almond">Almond</option>
+                    <option value="2%">2%</option>
+                </select>
+            </div>
+        </div>
 
-    <br/>
+        <br/>
 
-    <p align="center"><img src="/images/starbucks.jpg" alt=""></p>
+        <div class="text-center" style="margin-top: 20px; padding: 10px;">
+            <input type="submit" name="action" id="btnGetOrder" value="Get Order" class="shadow-lg btn btn-primary m-2">
+            <input type="submit" name="action" id="btnPlaceOrder" value="Place Order" class="shadow-lg btn btn-success m-2">
+            <input type="submit" name="action" id="btnClearOrder" value="Clear Order" class="shadow-lg btn btn-danger m-2">
+            <a href="/login" class="shadow-lg btn btn-secondary m-2">Log out</a>
+        </div>
 
-    <br/>
+        <div class="text-center" id="logo-style"><img src="/images/starbucks-logo.png" alt="starbucks logo"></div>
 
-    <p align="center">
-        <button type="button" name="btnGetOrder" id="btnGetOrder" onclick="submitForm('Get Order')">Get Order</button>
-        <button type="button" name="btnPlaceOrder" id="btnPlaceOrder" onclick="submitForm('Place Order')">Place Order</button>
-        <button type="button" name="btnClearOrder" id="btnClearOrder" onclick="submitForm('Clear Order')">Clear Order</button>
-    </p>
 
-</form>
+        <div class="text-center" style="margin-top: 10px">
+            <pre>Hash:  <span th:text="${hash}"></span></pre>
+            <pre>Server Host/IP:  <span th:text="${server}"></span></pre>
+        </div>
 
-<!-- END FORM SECTION -->
-
-<br/>
-<br/>
-
-<div align="center">
-    <pre>Hash:  <span th:text="${hash}"></span></pre>
-    <pre>Server Host/IP:  <span th:text="${server}"></span></pre>
-
-    <!-- LOGOUT SECTION -->
-    <div class="center">
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
-    </div>
-
+    </form>
 </div>
-
-<br/>
-<br/>
-
 </body>
 </html>

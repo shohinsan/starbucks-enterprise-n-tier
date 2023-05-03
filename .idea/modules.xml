@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/starbucks-api/spring-starbucks-api.iml" filepath="$PROJECT_DIR$/starbucks-api/spring-starbucks-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starbucks-cashier/starbucks-cashier.iml" filepath="$PROJECT_DIR$/starbucks-cashier/starbucks-cashier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/starbucks-enterprise-n-tier.iml" filepath="$PROJECT_DIR$/.idea/starbucks-enterprise-n-tier.iml" />
+    </modules>
+  </component>
+</project>

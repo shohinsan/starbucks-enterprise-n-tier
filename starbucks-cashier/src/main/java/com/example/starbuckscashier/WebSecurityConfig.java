@@ -15,6 +15,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    private static final String USER_ROLE = "USER";
+    private static final String GENERATED_PASSWORD = "secret";
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -23,18 +25,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        String rawPassword = "secret";
-//        String rawPassword = UUID.randomUUID().toString();
-        System.out.println("Using generated security password: " + rawPassword);
-
-        UserDetails user = User.builder()
-                .username("user")
-                .password(passwordEncoder().encode(rawPassword))
-                .roles("USER")
-                .build();
+        System.out.println("Using generated security password: " + GENERATED_PASSWORD);
+        UserDetails user = createUserWithRole();
         return new InMemoryUserDetailsManager(user);
     }
-    
+
+    private UserDetails createUserWithRole() {
+        return User.builder()
+                .username(WebSecurityConfig.USER_ROLE.toLowerCase())
+                .password(passwordEncoder().encode(WebSecurityConfig.GENERATED_PASSWORD))
+                .roles(WebSecurityConfig.USER_ROLE)
+                .build();
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()

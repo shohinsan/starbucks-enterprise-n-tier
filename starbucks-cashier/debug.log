@@ -1,2 +1,0 @@
-Error: Could not find or load main class starbucks.Main
-Caused by: java.lang.ClassNotFoundException: starbucks.Main

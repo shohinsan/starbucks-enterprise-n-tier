@@ -1,0 +1,39 @@
+body {
+    background: linear-gradient(90deg, rgba(250,240,230) 25%, rgba(250,240,230) 50%, rgba(250,240,230) 75%);
+}
+
+#message {
+    background-color: beige;
+}
+
+#register {
+    background-color: beige;
+}
+
+#drink {
+    background-color: beige;
+}
+
+#milk {
+    background-color: beige;
+}
+
+#size {
+    background-color: beige;
+}
+
+#hash {
+    background-color: beige;
+}
+
+#server {
+    background-color: beige;
+}
+
+img {
+    display: block;
+    max-width: 40%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}

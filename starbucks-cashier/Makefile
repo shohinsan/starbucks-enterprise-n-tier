@@ -1,19 +1,21 @@
 all: clean
 
 clean:
-	mvn clean
+	gradle clean
 
 compile:
-	mvn compile
+	gradle build
 
-run: compile
-	mvn spring-boot:run
+test:
+	gradle test
 
-build:
-	mvn package
+jar:
+	gradle build -x test
+	gradle bootJar
 
-run-jar: build
-	java -jar target/starbucks-cashier-1.0.jar
+run: jar
+	echo Starting Spring at:  http://localhost:9090
+	java -jar build/libs/starbucks-cashier-1.0.jar
 
 # MySQL DB
 
@@ -25,7 +27,7 @@ mysql-shell:
 
 # Docker
 
-docker-build: build
+docker-build: jar
 	docker build --platform=linux/amd64 -t starbucks-cashier .
 	docker images
 

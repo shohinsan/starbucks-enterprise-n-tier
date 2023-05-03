@@ -1,25 +1,42 @@
 all: clean
 
+#clean:
+#	mvn clean
+#
+#compile:
+#	mvn compile
+#
+#build: compile
+#	mvn package
+
 clean:
-	mvn clean
+	gradle clean
 
 compile:
-	mvn compile
+	gradle build
 
-build: compile
-	mvn package
+test:
+	gradle test
+
+jar:
+	gradle build -x test
+	gradle bootJar
+
+run: jar
+	echo Starting Spring at:  http://localhost:8080
+	java -jar build/libs/starbucks-api-3.1.jar
 
 run: build
 	echo Starting Spring at:  http://localhost:8080
-	java -jar target/spring-starbucks-api-3.1.jar --spring.profiles.active=dev
+	java -jar build/libs/starbucks-api-3.1.jar --spring.profiles.active=dev
 
 run-dev: build
 	echo Starting Spring at:  http://localhost:8080
-	java -jar target/spring-starbucks-api-3.1.jar --spring.profiles.active=dev
+	java -jar build/libs/starbucks-api-3.1.jar --spring.profiles.active=dev
 
 run-test: build
 	echo Starting Spring at:  http://localhost:8080
-	java -jar target/spring-starbucks-api-3.1.jar --spring.profiles.active=test
+	java -jar build/libs/starbucks-api-3.1.jar --spring.profiles.active=test
 
 # MySQL DB
 
@@ -215,4 +232,4 @@ kong-reload-config:
 	docker exec -it kong kong reload
 
 kong-ping:
-	http localhost:80/ping apikey:2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ
+	http localhost:8080/api/ping apikey:2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ

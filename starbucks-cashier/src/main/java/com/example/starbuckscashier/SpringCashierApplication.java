@@ -9,13 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class SpringCashierApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(SpringCashierApplication.class, args);
-    }
-
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
     }
 
 

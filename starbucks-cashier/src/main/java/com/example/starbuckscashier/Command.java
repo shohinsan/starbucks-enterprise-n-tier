@@ -14,4 +14,8 @@ class Command {
     private String state;
     private String timestamp;
     private String hash;
+    private String drink;
+    private String milk;
+    private String size;
+
 }

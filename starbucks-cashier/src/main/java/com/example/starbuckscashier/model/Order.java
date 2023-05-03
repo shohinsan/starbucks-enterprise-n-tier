@@ -3,8 +3,6 @@ package com.example.starbuckscashier.model;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import java.text.DecimalFormat;
-import java.util.Random;
 @RequiredArgsConstructor
 
 @Data
@@ -15,6 +13,4 @@ public class Order {
     private double total;
     private String status;
     private String register;
-
-
 }
