@@ -61,8 +61,8 @@ public class StarbucksCashierController {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         String message = "";
-        String host = "http://localhost:8080";
-        String apikey = "2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ";
+        String host = "http://localhost:8080"; // "http://34.136.24.3/api";
+        String apikey = "2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ"; // "Zkfokey2311";
 
         // 2. Set request headers
         headers.set("apikey", apikey);
