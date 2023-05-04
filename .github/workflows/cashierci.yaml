@@ -27,13 +27,14 @@ jobs:
 
       # Make sure gradle wrapper is executable
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: chmod +x starbucks-cashier/gradlew
 
       # The "Build with Gradle" step does a build using the gradle/gradle-build-action
       # action provided by the Gradle organization on GitHub. The action takes care of
       # invoking Gradle, collecting results, and caching state between jobs.
       # For more information, See: https://github.com/gradle/gradle-build-action.
       - name: Build with Gradle
+        working-directory: starbucks-cashier
         run: ./gradlew build
 
       # List the Build output folder to confirm JAR file was built
@@ -47,4 +48,4 @@ jobs:
         uses: actions/upload-artifact@v2.2.3
         with:
           name: starbucks-cashier
-          path: starbucks-enterprise-n-tier/starbucks-cashier/build/libs/starbucks-cashier-1.0.jar
+          path: starbucks-cashier/build/libs/starbucks-cashier-1.0.jar
