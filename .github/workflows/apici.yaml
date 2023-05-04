@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Gradle
 # See Also: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
 
-name: Cashier CI with Gradle
+name: API CI with Gradle
 
 on:
   push:
