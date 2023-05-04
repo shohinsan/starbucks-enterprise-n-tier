@@ -3,6 +3,7 @@ package com.example.springstarbucksapi.service;
 import com.example.springstarbucksapi.model.StarbucksCard;
 import com.example.springstarbucksapi.model.StarbucksOrder;
 //import com.example.springstarbucksapi.rabbitmq.OrderProducer;
+import com.example.springstarbucksapi.rabbitmq.OrderProducer;
 import com.example.springstarbucksapi.repository.StarbucksCardRepository;
 import com.example.springstarbucksapi.repository.StarbucksOrderRepository;
 
@@ -22,7 +23,7 @@ public class StarbucksService {
     // REF: https://www.moreofless.co.uk/spring-mvc-java-autowired-component-null-repository-service
     @Autowired private StarbucksOrderRepository ordersRepository;
     @Autowired private StarbucksCardRepository cardsRepository;
-//    @Autowired private OrderProducer orderProducer;
+    @Autowired private OrderProducer orderProducer;
 
     /* https://docs.spring.io/spring-data/jpa/docs/2.4.5/api/ */
 
@@ -188,14 +189,14 @@ public class StarbucksService {
         orders.put(regid, new_order);
         // Send the order to the RabbitMQ queue
 
-//        orderProducer.sendOrder(new_order);
+        orderProducer.sendOrder(new_order);
 
         return new_order;
     }
 
-//    public void updateOrderStatus(StarbucksOrder order) {
-//        ordersRepository.save(order);
-//    }
+    public void updateOrderStatus(StarbucksOrder order) {
+        ordersRepository.save(order);
+    }
 
     /* Get Details of a Starbucks Order */
     public StarbucksOrder getActiveOrder(String regid) {
