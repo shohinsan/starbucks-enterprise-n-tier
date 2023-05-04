@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: spring-starbucks-api
-          image: insidious000/spring-starbucks-api:v3.1
+          image: insidious000/spring-starbucks-api:v3.2
           env:
             - name: MYSQL_HOST
               # Localhost

@@ -17,7 +17,7 @@ services:
     restart: always
 
   starbucks:
-    image: insidious000/spring-starbucks-api:v3.1
+    image: insidious000/spring-starbucks-api:v3.2
     platform: linux/amd64
     depends_on:
       - mysql
