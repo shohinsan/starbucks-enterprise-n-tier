@@ -28,7 +28,6 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-amqp'
-	implementation 'com.google.cloud.sql:mysql-socket-factory:1.0.1'
 }
 
 tasks.named('test') {

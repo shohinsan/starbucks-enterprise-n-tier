@@ -24,19 +24,19 @@ jar:
 
 run: jar
 	echo Starting Spring at:  http://localhost:8080
-	java -jar build/libs/starbucks-api-3.1.jar
+	java -jar build/libs/starbucks-api-3.2.jar
 
 run: build
 	echo Starting Spring at:  http://localhost:8080
-	java -jar build/libs/starbucks-api-3.1.jar --spring.profiles.active=dev
+	java -jar build/libs/starbucks-api-3.2.jar --spring.profiles.active=dev
 
 run-dev: build
 	echo Starting Spring at:  http://localhost:8080
-	java -jar build/libs/starbucks-api-3.1.jar --spring.profiles.active=dev
+	java -jar build/libs/starbucks-api-3.2.jar --spring.profiles.active=dev
 
 run-test: build
 	echo Starting Spring at:  http://localhost:8080
-	java -jar build/libs/starbucks-api-3.1.jar --spring.profiles.active=test
+	java -jar build/libs/starbucks-api-3.2.jar --spring.profiles.active=test
 
 # MySQL DB
 
