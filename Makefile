@@ -17,3 +17,6 @@ starbucks-app-run:
 		-Dapikey="2742a237475c4703841a2bf906531eb0" \
 		-Dregister="5012349" \
 		starbucks.Main 2>debug.log
+		
+# replace Dapiurl "http://34.136.24.3/api";
+# replace Dapikey "Zkfokey2311";
