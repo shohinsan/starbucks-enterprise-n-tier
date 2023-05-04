@@ -39,6 +39,7 @@ dependencies {
 	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.8.0'
 	testImplementation 'org.testcontainers:mysql'
 	implementation 'com.fasterxml.jackson.core:jackson-core:2.12.5'
 	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.5'
