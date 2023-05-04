@@ -44,10 +44,12 @@
 </details>
 
 <!-- Daily Journals -->
+
 ## Day 1 
+
 `date` May 2, 2023
 <br />
-`commit`
+`commit` [708d73d](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/708d73d33d45824df565edc9cf7dafbb289d6de4) 
 <br />
 `topic` Kong API
 
@@ -66,6 +68,33 @@ Kong is an API gateway that provides a unified entry point for all your APIs and
 ![image](https://user-images.githubusercontent.com/22685770/235778791-0380f48f-d65d-4159-ba8b-5813c43503b2.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Day 2
+
+`date` May 3, 2023
+<br />
+`commit`
+<br />
+`topic` RabbitMQ Code Implementation and GitHub Actions
+
+### Purpose
+
+I'm willing to make GitHub actions work because I want to reduce manual errors and save time by automating repetitive tasks like code formatting and deployment. Also I've been working on adding the code for RabbitMQ because I want a reliable message broker to handle asynchronous communication between microservices in my distributed system and ensure seamless scalability and fault tolerance and be prepared for my project
+
+### Challenges
+* I'm having difficulties to make GitHub Actions work. For some reason, everything is working correct in local using Cloud SQL, but GitHub is refusing to accept that.
+
+![image](https://user-images.githubusercontent.com/22685770/236125178-0634461d-debf-403a-ab66-6f1025c26a61.png)
+![image](https://user-images.githubusercontent.com/22685770/236125100-8a1d144a-aae3-4dfa-974f-31fdaf1c86a2.png)
+
+### Testing
+![image](https://user-images.githubusercontent.com/22685770/236125070-2afafb79-8b84-4e90-a80e-ca1ab8f5504a.png)
+
+### Improvements
+* The only thing I was able to do is to make my RabbitMQ work locally, but that's just a beginning. I'm going to implement RabbitMQ Kubernetes Operator along the way as long as I get it right.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
