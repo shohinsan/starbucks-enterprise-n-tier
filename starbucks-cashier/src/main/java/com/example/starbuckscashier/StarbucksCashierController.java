@@ -15,7 +15,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/starbucks")
 public class StarbucksCashierController {
     private static final String KEY = "kwRg54x2Go9iEdl49jFENRM12Mp711QI";
     private static final String HMAC_SHA_256 = "HmacSHA256";
