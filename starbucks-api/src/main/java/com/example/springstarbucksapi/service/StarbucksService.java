@@ -2,7 +2,6 @@ package com.example.springstarbucksapi.service;
 
 import com.example.springstarbucksapi.model.StarbucksCard;
 import com.example.springstarbucksapi.model.StarbucksOrder;
-//import com.example.springstarbucksapi.rabbitmq.OrderProducer;
 import com.example.springstarbucksapi.rabbitmq.OrderSender;
 import com.example.springstarbucksapi.repository.StarbucksCardRepository;
 import com.example.springstarbucksapi.repository.StarbucksOrderRepository;
@@ -243,6 +242,8 @@ public class StarbucksService {
         cardsRepository.save(card);
         active.setCard(card);
         ordersRepository.save(active);
+        // After the payment is processed successfully
+        orderSender.sendOrder(active); // Send the order to the RabbitMQ queue
         return card;
     }
 

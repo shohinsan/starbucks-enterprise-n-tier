@@ -100,13 +100,20 @@ public class StarbucksCashierController {
         String message;
 
         try {
-            ResponseEntity<Object> orderResponse = restTemplate.getForEntity(resourceUrl, Object.class, apikey);
-
+            ResponseEntity<Order> orderResponse = restTemplate.getForEntity(resourceUrl, Order.class, apikey);
             if (orderResponse.getStatusCodeValue() == 200) {
-                ObjectMapper objectMapper = new ObjectMapper();
-                String jsonString = objectMapper.writerWithDefaultPrettyPrinter()
-                        .writeValueAsString(orderResponse.getBody());
-                message = "The active order:\n" + jsonString;
+                Order order = orderResponse.getBody();
+                StringBuilder sb = new StringBuilder();
+                sb.append("=== The active order ===\n");
+                sb.append("drink: ").append(order.getDrink()).append("\n");
+                sb.append("milk: ").append(order.getMilk()).append("\n");
+                sb.append("size: ").append(order.getSize()).append("\n");
+                sb.append("=== Price ===\n");
+                sb.append("total: ").append(order.getTotal()).append("\n");
+                sb.append("=== Order Queue ===\n");
+                sb.append("status: ").append(order.getStatus()).append("\n");
+                sb.append("register: ").append(order.getRegister()).append("\n");
+                message = sb.toString();
             } else if (orderResponse.getStatusCodeValue() == 400) {
                 message = "No active orders for this registry.";
             } else {
