@@ -9,15 +9,14 @@
 
 <body>
 <div class="container">
-    <h1 class="text-center mt-2">Welcome to Starbucks Reserved (Docker Demo)</h1>
+    <h1 class="text-center mt-2">Welcome to Starbucks Reserved (GKE Demo)</h1>
 
     <!-- Starbucks Section -->
-    <form name="form" th:object="${command}" method="post" action="#" th:action="@{/}">
+    <form name="form" th:object="${command}" method="post" action="#" th:action="@{/starbucks}">
 
-        <input type="hidden" name="state" id="state" value="{{state}}"/>
-        <input type="hidden" name="ts" id="ts" value="{{ts}}"/>
-        <input type="hidden" name="hash" id="hash" value="{{hash}}"/>
-
+        <input type="hidden" name="state" id="state" value="{{state}}" />
+        <input type="hidden" name="ts" id="ts" value="{{ts}}" />
+        <input type="hidden" name="hash" id="hash" value="{{hash}}" />
 
         <div class="form-group">
             <label for="message"></label>
@@ -49,6 +48,7 @@
                     <option value="Cappuccino">Cappuccino</option>
                 </select>
             </div>
+
             <div class="form-group col-md-3">
                 <label for="size">Select Size:</label>
                 <select name="size" id="size" class="form-control" th:field="*{size}">
@@ -59,6 +59,7 @@
                     <option value="Your Own Cup">Your Own Cup</option>
                 </select>
             </div>
+
             <div class="form-group col-md-3">
                 <label for="milk">Milk Type:</label>
                 <select name="milk" id="milk" class="form-control" th:field="*{milk}">
@@ -81,7 +82,6 @@
         </div>
 
         <div class="text-center" id="logo-style"><img src="/images/starbucks-logo.png" alt="starbucks logo"></div>
-
 
         <div class="text-center" style="margin-top: 10px">
             <pre>Hash:  <span th:text="${hash}"></span></pre>

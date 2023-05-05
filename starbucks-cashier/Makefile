@@ -35,7 +35,8 @@ kong-network:
 	docker network create --driver bridge kong-network
 
 docker-run: docker-build
-	docker run --platform=linux/amd64 --network starbucks -e "MYSQL_HOST=mysql" --name starbucks-cashier -td -p 9090:9090 starbucks-cashier
+	#docker run --platform=linux/amd64 --network starbucks -e "MYSQL_HOST=mysql" --name starbucks-cashier -td -p 9090:9090 starbucks-cashier
+	docker run --platform=linux/amd64 --network starbucks -e "MYSQL_HOST=104.154.89.163" --name starbucks-cashier -td -p 9090:9090 starbucks-cashier
 
 docker-clean:
 	docker stop starbucks-cashier
