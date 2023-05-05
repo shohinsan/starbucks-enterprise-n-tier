@@ -73,7 +73,7 @@ Kong is an API gateway that provides a unified entry point for all your APIs and
 
 `date` May 3, 2023
 <br />
-`commit`
+`commit` [d835760](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/d835760aa3b4b6991272b0418619f6b49fb05212)
 <br />
 `topic` RabbitMQ Code Implementation and GitHub Actions
 
@@ -92,6 +92,28 @@ I'm willing to make GitHub actions work because I want to reduce manual errors a
 
 ### Improvements
 * The only thing I was able to do is to make my RabbitMQ work locally, but that's just a beginning. I'm going to implement RabbitMQ Kubernetes Operator along the way as long as I get it right.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Day 3
+
+`date` May 4, 2023
+<br />
+`commit`
+<br />
+`topic` Admin Login and Its Controller
+
+### Purpose
+
+Having an admin or privileged account grants me a source of truth and the ability to see and control anything and everything in my database, therefore I worked hard on implementing this amazing feature into my project
+
+### Challenges
+* At first, it was not working properly, but after I went to my scheduled office hours on May 4th.
+### Testing
+
+
+### Improvements
+* I fixed the bug by changing the routes in my GetMapping requests. Then It worked perfect and as intended
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
