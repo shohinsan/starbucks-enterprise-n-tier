@@ -1,13 +1,13 @@
-package com.example.starbuckscashier.login;//package com.example.starbuckscashier.login;
-//
-//import org.springframework.data.jpa.repository.JpaRepository;
-//import org.springframework.stereotype.Repository;
-//
-//import java.util.Optional;
-//
-//@Repository
-//public interface UserRepository extends JpaRepository<User, Long> {
-//    Optional<User> findByEmail(String email);
-//}
-//
-//
+package com.example.starbuckscashier.login;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByEmail(String email);
+}
+
+

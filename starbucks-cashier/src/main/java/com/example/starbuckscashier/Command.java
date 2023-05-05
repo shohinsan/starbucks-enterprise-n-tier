@@ -17,5 +17,6 @@ class Command {
     private String drink;
     private String milk;
     private String size;
+    private String server;
 
 }
