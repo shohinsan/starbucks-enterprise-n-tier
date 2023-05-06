@@ -99,7 +99,7 @@ I'm willing to make GitHub actions work because I want to reduce manual errors a
 
 `date` May 4, 2023
 <br />
-`commit`
+`commit` [bd1ff03](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/bd1ff03623d3e50b9ff4b6ec205fc5a4fbf1c40e)
 <br />
 `topic` Admin Login and Its Controller
 
@@ -114,6 +114,28 @@ Having an admin or privileged account grants me a source of truth and the abilit
 
 ### Improvements
 * I fixed the bug by changing the routes in my GetMapping requests. Then It worked perfect and as intended
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Day 4
+
+`date` May 5, 2023
+<br />
+`commit`
+<br />
+`topic` RabbitMQ with Single Pod
+
+### Purpose
+
+Being able to receive and send messages throgh the broker using Google Cloud.
+
+### Challenges
+* At the moment, I'm having an issue connecting RabbitMQ to External Load Balancer I created in Google Cloud
+### Testing
+![Screenshot 2023-05-05 at 11 22 24 PM](https://user-images.githubusercontent.com/22685770/236606096-e9c3d008-a409-4188-a162-6d53c8eb908e.png)
+
+### Improvements
+* Other than trying to fix RabbitMQ bug, I only made slight changes in my code for better readability and accessibility
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
