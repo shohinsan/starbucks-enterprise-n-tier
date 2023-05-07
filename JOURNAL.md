@@ -139,6 +139,29 @@ Being able to receive and send messages throgh the broker using Google Cloud.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Day 5
+
+`date` May 6, 2023
+<br />
+`commit`
+<br />
+`topic` Stateless Session
+
+### Purpose
+
+The reason I I removed HashMap from Starbucks Services which was Stateful is because it was storing data in itself.
+
+### Challenges
+* I must have an ability to store all the data in the database and also in an event queue (RabbitMQ, still under development)
+### Testing
+* No tests here
+
+### Improvements
+* Changed Get Details of a Starbucks Order and Clear Active Order to be Stateless
+
+![Screenshot 2023-05-06 at 11 34 26 PM](https://user-images.githubusercontent.com/22685770/236661865-b7f29bf1-ab0e-4dfb-823a-3f6ad9d29b34.png)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
