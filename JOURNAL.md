@@ -161,6 +161,26 @@ The reason I I removed HashMap from Starbucks Services which was Stateful is bec
 
 ![Screenshot 2023-05-06 at 11 34 26 PM](https://user-images.githubusercontent.com/22685770/236661865-b7f29bf1-ab0e-4dfb-823a-3f6ad9d29b34.png)
 
+## Day 6
+
+`date` May 8, 2023
+<br />
+`commit`
+<br />
+`topic` Starbucks Cashier to Cloud
+
+### Purpose
+
+To be able to run Starbucks Cashier in cloud 
+
+### Challenges
+* I'm having trouble connecting Starbucks Cashier in Cloud because of the pod version, I'll try to fix it another day.
+### Testing
+* No tests here
+
+### Improvements
+* No improvements
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
