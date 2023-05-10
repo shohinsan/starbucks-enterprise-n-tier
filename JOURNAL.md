@@ -161,6 +161,8 @@ The reason I I removed HashMap from Starbucks Services which was Stateful is bec
 
 ![Screenshot 2023-05-06 at 11 34 26 PM](https://user-images.githubusercontent.com/22685770/236661865-b7f29bf1-ab0e-4dfb-823a-3f6ad9d29b34.png)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Day 6
 
 `date` May 8, 2023
@@ -177,6 +179,28 @@ To be able to run Starbucks Cashier in cloud
 * I'm having trouble connecting Starbucks Cashier in Cloud because of the pod version, I'll try to fix it another day.
 ### Testing
 * No tests here
+
+### Improvements
+* No improvements
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Day 7
+
+`date` May 8, 2023
+<br />
+`commit`
+<br />
+`topic` RabbitMQ Worker
+
+### Purpose
+
+Separated RabbitMQ as suggested in office hours
+
+### Challenges
+* Not being able to connect to Starbucks API, it works and breaks some time, so I'm working on that currently in order to fix the issue
+
+![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/24fdb171-1c3d-436c-b857-34bf2a2389f5)
 
 ### Improvements
 * No improvements
