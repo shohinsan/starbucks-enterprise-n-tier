@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: starbucks-worker-console
+  namespace: default
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 15672
+      protocol: TCP
+  selector:
+    name: starbucks-worker

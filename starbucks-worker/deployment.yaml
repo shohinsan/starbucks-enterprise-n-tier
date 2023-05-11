@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: starbucks-worker-deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      name: rabbitmq
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      # unlike pod.yaml, the name is not included in the metadata as a unique name is
+      # generated from the deployment name
+      labels:
+        name: rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: insidious000/starbucks-worker:v1.0
+          env:
+            - name: MYSQL_HOST
+              value: 10.73.0.3
+            - name: MYSQL_USER
+              value: "admin"
+            - name: MYSQL_PASSWORD
+              value: "cmpe172"
+            - name: RABBIT_HOST
+              value: 10.112.1.76
+            - name: RABBIT_USER
+              value: guest
+            - name: RABBIT_PASSWORD
+              value: guest
+            - name: RABBIT_PORT
+              value: "80"
+          ports:
+            - containerPort: 8080
