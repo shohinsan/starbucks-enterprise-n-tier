@@ -209,11 +209,36 @@ Separated RabbitMQ as suggested in office hours
 
 ## Day 8
 
+`date` May 10, 2023
+<br />
+`commit`
+<br />
+`topic` Starbucks Cashier
+
+### Purpose
+
+Connect Starbucks Cashier to GKE 
+
+### Challenges
+* Challenges I had for this part was that I forgot to include platform linux because of m1 issue and later in the day I was able to figure out. Next, I uploaded Cashier successfuly and I saw that my cashier was unhealthy. From there, I went to ingress settings and changed the host to /login and it fixed it
+
+
+### Improvements
+* Cashier Web App uploaded to GKE successfuly
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Day 9
+
 `date` May 11, 2023
 <br />
 `commit`
 <br />
 `topic` Starbucks Cashier
+
+## Day 10
+
+* uploaded to google cloud
 
 ### Purpose
 
