@@ -14,7 +14,6 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22685770/235343403-e84bb1f3-7153-4971-9972-9704c84ba812.jpg" alt="My Image" width="300" height="auto">
 </p>
-
   <p align="center">
     <br />
     <br />
@@ -56,8 +55,9 @@
 ## About The Project
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/22685770/235343350-a6580fda-c138-439e-a72e-24639bc54015.png" alt="My Image" width="800" height="auto">
+  <img src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/084d78f8-c720-4e94-9939-63c603464383" alt="My Image" width="800" height="auto">
 </p>
+
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
