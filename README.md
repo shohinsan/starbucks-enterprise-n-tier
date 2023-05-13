@@ -68,7 +68,13 @@ Consists of:
 * B
 * C
 
-And, of course, D
+
+## Architecture
+
+<p align="center">
+  <img src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/5c612ce6-002f-4400-a0db-f259ebbc77d9" alt="My Image" width="800" height="auto">
+</p>
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
