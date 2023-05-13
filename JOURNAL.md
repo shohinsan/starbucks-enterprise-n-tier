@@ -295,7 +295,7 @@ Cashier Web App as it serves as a user-friendly platform for cashiers to manage 
 
 `date` May 13, 2023
 <br />
-`commit` []()
+`commit` [f9de2a9](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/f9de2a93df60a806a66fb208174d6df65d511868)
 <br />
 `topic` Final Testing
 
