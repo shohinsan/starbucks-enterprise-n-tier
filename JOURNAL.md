@@ -43,6 +43,36 @@
   </ol>
 </details>
 
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+<p align="center">
+  <img src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/084d78f8-c720-4e94-9939-63c603464383" alt="My Image" width="800" height="auto">
+</p>
+
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+
+This is the comprehensive project for CMPE 172 (Enterprise Software Development) at San Jose State University, for the Spring 2023 semester. This project is a multi-tiered, end-to-end system composed of several elements:
+
+* A web-based application enabling cashiers to oversee their customers' orders (referred to as the Cashier's app)
+* A mobile application facilitating payment for customer orders (termed as the Starbucks app)
+* A Starbucks API responsible for processing requests coming from both the Cashier's and Starbucks apps
+* A database designed to maintain records of orders and cards
+
+## Architecture
+
+<p align="center">
+  <img src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/5c612ce6-002f-4400-a0db-f259ebbc77d9" alt="My Image" width="800" height="auto">
+</p>
+
+The Cashier app and particularly the Starbucks API are designed for scalability, supported by multiple pods. They are capable of managing millions of user requests, and the load balancer assists in distributing these requests across the various pods - an external load balancer for the cashiers, and Kong's internal load balancer for all requests directed towards the Starbucks API.
+
+However, there is a constraint regarding the number of active orders. Only one active order per register can be processed at a given time. Consequently, any request to place a new order in the register will be denied and remain unprocessed. This limitation isn't influenced by the number of pods, as all API pods draw data exclusively from the database and don't contain static data (following the removal of the activeOrders hashmap and subsequent code update).
+
+This system could be enhanced by incorporating RabbitMQ. For example, we could initially send order placement requests to the RabbitMQ queue, where orders would be held pending execution. Then, the API would retrieve the next order from the queue for the register and set it as active, continuing this process until the queue is empty. Regrettably, due to not just time restrictions, but also being able to dequeue from the database, I wasn't able to implement RabbitMQ. Though, I gave it a try and uploaded RabbitMQ in GKE, which works as intended. 
+
+The rest of the necessary technology stack was utilized appropriately for the project, and the accompanying journal provides further details on the project's construction.
+
 <!-- Daily Journals -->
 
 ## Day 1 
@@ -54,18 +84,18 @@
 `topic` Kong API
 
 ### Purpose
+
 Kong is an API gateway that provides a unified entry point for all your APIs and microservices. It manages and secures APIs by providing features such as authentication, rate limiting, request/response transformations, load balancing, and more.
 
 ### Challenges
-* It was difficult to be able to connect to Kong API, but I found out that I was using the wrong network for my project since it was similar to the previous assignment, lab 8
+
+* It was difficult to be able to connect to Kong API, I had to first work on figuring out the configuration. I had problems using the correct endpoints and ports for the API to connect to my application, after figuring out that, I had problems with my get and post requests. POSTMAN was useful in configuring the parameters such as the correct headers to use in the body of the requests, but with practice and online resources I was able to test my requests against the API.
 
 ### Testing
-![image](https://user-images.githubusercontent.com/22685770/235778488-7fb2326d-aa98-4f85-9311-ca04ea1a22cb.png)
 
-### Improvements
-* Once I fixed the network bug, I was able to connect to the Kong API through httpie and curl as shown below:
-![image](https://user-images.githubusercontent.com/22685770/235778725-40b0e19b-a075-4cae-80f0-d1d29056508c.png)
-![image](https://user-images.githubusercontent.com/22685770/235778791-0380f48f-d65d-4159-ba8b-5813c43503b2.png)
+![7  Jumpbox Http](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/055c6ab6-0201-449b-a30c-273373ef23b1)
+![9  Kong Curl 2](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/4dd860f0-c9e8-4073-8499-2f655abc68c0)
+![13  Final http Result](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/89b12cd2-7c99-408d-8cfd-e45a43a32be8)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,23 +105,25 @@ Kong is an API gateway that provides a unified entry point for all your APIs and
 <br />
 `commit` [d835760](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/d835760aa3b4b6991272b0418619f6b49fb05212)
 <br />
-`topic` RabbitMQ Code Implementation and GitHub Actions
+`topic` RabbitMQ and GitHub Actions
 
 ### Purpose
 
-I'm willing to make GitHub actions work because I want to reduce manual errors and save time by automating repetitive tasks like code formatting and deployment. Also I've been working on adding the code for RabbitMQ because I want a reliable message broker to handle asynchronous communication between microservices in my distributed system and ensure seamless scalability and fault tolerance and be prepared for my project
+I wanted to use RabbitMQ because it provides a resilient messaging queue system that aids in asynchronous communication within a software system. It allows me to decouple applications, enabling them to dispatch and receive data without needing immediate processing. This improves the responsiveness and scalability of my applications, by effectively managing data flow and preventing system overload.
+
+Also, another thing I attemted to implement, but again, failed, is to utilize GitHub Actions as it offers a powerful solution for both Continuous Integration (CI) and Continuous Deployment (CD), streamlining the process of code updates and software releases. By automatically building, testing, and deploying applications whenever there's a change to the codebase, it reduces my manual workload. This leads to more consistent and frequent deployments, expediting product development, and enhancing software quality.
 
 ### Challenges
-* I'm having difficulties to make GitHub Actions work. For some reason, everything is working correct in local using Cloud SQL, but GitHub is refusing to accept that.
 
-![image](https://user-images.githubusercontent.com/22685770/236125178-0634461d-debf-403a-ab66-6f1025c26a61.png)
-![image](https://user-images.githubusercontent.com/22685770/236125100-8a1d144a-aae3-4dfa-974f-31fdaf1c86a2.png)
+* Implementing both RabbitMQ and GitHub Actions posed distinct challenges. With RabbitMQ, the complexity arose from integrating it into the existing system architecture and ensuring its robust performance under high loads, whereas with GitHub Actions, setting up an efficient CI/CD pipeline and troubleshooting failed builds and deployments presented significant hurdles.
 
 ### Testing
-![image](https://user-images.githubusercontent.com/22685770/236125070-2afafb79-8b84-4e90-a80e-ca1ab8f5504a.png)
 
-### Improvements
-* The only thing I was able to do is to make my RabbitMQ work locally, but that's just a beginning. I'm going to implement RabbitMQ Kubernetes Operator along the way as long as I get it right.
+<img width="1326" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/5029bc00-581d-4d8a-8ad7-4a3b9fdbbbf0">
+![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/184747c2-7245-4586-a780-7f967875219f)
+<img width="2550" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/608dd6e4-9a29-40a0-a792-0baa48645980">
+
+Therefore, I wasn't been able to accomplish these task while workin on my final project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,19 +133,20 @@ I'm willing to make GitHub actions work because I want to reduce manual errors a
 <br />
 `commit` [bd1ff03](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/bd1ff03623d3e50b9ff4b6ec205fc5a4fbf1c40e)
 <br />
-`topic` Admin Login and Its Controller
+`topic` Admin Functionality
 
 ### Purpose
 
-Having an admin or privileged account grants me a source of truth and the ability to see and control anything and everything in my database, therefore I worked hard on implementing this amazing feature into my project
+Admin functionality serves the crucial role of defining security configurations, such as authentication and authorization rules. It ensures that appropriate access controls are in place, thereby safeguarding sensitive data and functionalities. The admin login, specifically, is an essential part of this security framework, providing a secure way for administrators to access privileged functions and manage the application effectively.
 
 ### Challenges
-* At first, it was not working properly, but after I went to my scheduled office hours on May 4th.
+
+Implementing Spring Security alongside a load balancer in Google Kubernetes Engine (GKE) presented notable challenges. Configuring both to work harmoniously, while maintaining secure user sessions across multiple pods, was complex. Furthermore, ensuring that the load balancer correctly distributed traffic without compromising the security protocols established by Spring Security added to the difficulties. Additionally, managing the routing of requests accurately to ensure that they reached the appropriate services, while maintaining session continuity in a load-balanced environment, also presented a significant challenge.
+
 ### Testing
 
-
-### Improvements
-* I fixed the bug by changing the routes in my GetMapping requests. Then It worked perfect and as intended
+<img width="1718" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/691eafd2-f7b3-4a3e-b501-458deb6adaca">
+<img width="1726" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/71998b58-b53a-4e0a-913b-538a7458611d">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -121,21 +154,21 @@ Having an admin or privileged account grants me a source of truth and the abilit
 
 `date` May 5, 2023
 <br />
-`commit`
+`commit` [f317f59](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/f317f59285ad8c083781b81de3c39a96a4ce0160)
 <br />
-`topic` RabbitMQ with Single Pod
+`topic` Cloud SQL
 
 ### Purpose
 
-Being able to receive and send messages throgh the broker using Google Cloud.
+I wanted to leverage Google Cloud SQL because it provides a fully-managed relational database service for MySQL, PostgreSQL, and SQL Server. It handles the mundane tasks of database management, such as backups, patch management, and failover, allowing me to focus on developing applications. Moreover, its scalability, high availability, and security features make it an excellent choice for handling my application's data needs.
 
 ### Challenges
-* At the moment, I'm having an issue connecting RabbitMQ to External Load Balancer I created in Google Cloud
-### Testing
-![Screenshot 2023-05-05 at 11 22 24 PM](https://user-images.githubusercontent.com/22685770/236606096-e9c3d008-a409-4188-a162-6d53c8eb908e.png)
 
-### Improvements
-* Other than trying to fix RabbitMQ bug, I only made slight changes in my code for better readability and accessibility
+* Implementing Google Cloud SQL posed a few challenges, the most significant being fine-tuning the database for optimal performance while managing costs. Additionally, ensuring secure connections between the application and the database, as well as configuring the right access privileges without compromising security, were other complex aspects to navigate.
+
+### Testing
+
+<img width="2553" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/4416c839-011b-4bed-bff6-b9bb68b125b3">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -143,23 +176,21 @@ Being able to receive and send messages throgh the broker using Google Cloud.
 
 `date` May 6, 2023
 <br />
-`commit`
+`commit` [f9ecad7](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/f9ecad7fdf77d90c1795750683cace694eb6841d)
 <br />
 `topic` Stateless Session
 
 ### Purpose
 
-The reason I I removed HashMap from Starbucks Services which was Stateful is because it was storing data in itself.
+Before deploying the Starbucks API code, I confirmed that the API is at least stateless, meaning it doesn't retain any data internally, such as arraylists or hashmaps. Instead, it should store all data within the database and an event queue, such as RabbitMQ. As part of your tasks, you'll need to elucidate the design and implementation, relating it back to the business logic. You'll also need to discuss the capabilities and constraints of your API in conjunction with all other components.
 
 ### Challenges
-* I must have an ability to store all the data in the database and also in an event queue (RabbitMQ, still under development)
+
+* Implementing stateless functionality to shift from using a hashmap to a database connection presented several challenges. The primary issue was managing the transition to a completely different data structure, which required significant code changes and retesting. Additionally, ensuring efficient and reliable database connections for every request, while maintaining high performance and scalability, was a complex task.
+
 ### Testing
-* No tests here
 
-### Improvements
-* Changed Get Details of a Starbucks Order and Clear Active Order to be Stateless
-
-![Screenshot 2023-05-06 at 11 34 26 PM](https://user-images.githubusercontent.com/22685770/236661865-b7f29bf1-ab0e-4dfb-823a-3f6ad9d29b34.png)
+<img width="2550" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/e0a85431-0807-4510-8bfe-ec07092fb41e">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -167,21 +198,13 @@ The reason I I removed HashMap from Starbucks Services which was Stateful is bec
 
 `date` May 8, 2023
 <br />
-`commit`
+`commit` [a3dd2fa](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/a3dd2fa9b2712b5d39ab8ec41a7434102e87007e)
 <br />
-`topic` Starbucks Cashier to Cloud
+`topic` Office Hours
 
 ### Purpose
 
-To be able to run Starbucks Cashier in cloud 
-
-### Challenges
-* I'm having trouble connecting Starbucks Cashier in Cloud because of the pod version, I'll try to fix it another day.
-### Testing
-* No tests here
-
-### Improvements
-* No improvements
+I needed office hours where I had to meet with the professor to ask questions, seek clarification, and receive individualized support. They provided an opportunity to deepen my understanding of the course material, discuss assignments, and receive guidance, ultimately enhancing my learning experience.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -189,21 +212,30 @@ To be able to run Starbucks Cashier in cloud
 
 `date` May 8, 2023
 <br />
-`commit`
+`commit` [24eb896](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/24eb896aa72df93d04c6913e4d758777015b5e34)
 <br />
-`topic` RabbitMQ Worker
+`topic` Postman Testing
 
 ### Purpose
 
-Separated RabbitMQ as suggested in office hours
+I also used Postman to interact with the Kong API. By leveraging the environment variables I've set, I can seamlessly test and validate various API endpoints, ensuring their functionality and performance. Postman enables me to send requests, receive responses, and analyze the API's behavior, ultimately helping me ensure the reliability and effectiveness of my Kong API implementation.
 
 ### Challenges
-* Not being able to connect to Starbucks API, it works and breaks some time, so I'm working on that currently in order to fix the issue
+ 
+Firstly, managing the environment variables can be complex, especially when dealing with different environments or configurations. Secondly, understanding the intricacies of the Kong API and its specific authentication methods requires additional research and knowledge. Lastly, accurately simulating various scenarios and handling edge cases during testing can be time-consuming and require meticulous attention to detail. Eventually, I changed current variables to meet Kong API requirements 
 
-![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/24fdb171-1c3d-436c-b857-34bf2a2389f5)
+<img width="2543" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/9305f2e0-6d85-4c7c-918a-8d0014f2c3d4">
 
-### Improvements
-* No improvements
+### Testing
+
+<img width="2550" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/46731f64-198e-4a86-a08e-d45cc9b5e6e6">
+<img width="2546" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/208a2471-4416-4dff-b891-9edb4bf07f51">
+<img width="2544" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/18c66cea-17ef-45df-82c3-0b8f61c0f840">
+<img width="2541" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/28ced06d-72d5-4130-b2b5-681de170c99b">
+<img width="2546" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/2db3efdc-00b2-450f-ba6a-5e724a13a242">
+<img width="2551" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/04f35b50-5e2e-498b-95de-267bd15d8835">
+<img width="2552" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/bc5f684f-91f3-4f43-988b-36f3c8dab639">
+<img width="2553" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/ed25f40f-f111-4bb9-8c18-105b66e33fa6">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -211,20 +243,31 @@ Separated RabbitMQ as suggested in office hours
 
 `date` May 10, 2023
 <br />
-`commit`
+`commit` [9b345fc](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/9b345fc363bf6696bf730a1c3fdeb8acfe0a3752)
 <br />
-`topic` Starbucks Cashier
+`topic` Deployment Testing
 
 ### Purpose
 
-Connect Starbucks Cashier to GKE 
+Scalable platform for running containerized applications offered service discovery and load balancing, which helped in managing my applications more efficiently. Moreover, its ability to scale applications based on traffic or custom metrics ensures optimal resource utilization and application performance.
 
 ### Challenges
-* Challenges I had for this part was that I forgot to include platform linux because of m1 issue and later in the day I was able to figure out. Next, I uploaded Cashier successfuly and I saw that my cashier was unhealthy. From there, I went to ingress settings and changed the host to /login and it fixed it
 
+Main challenges I have faced were:
+* Configuration Errors: Pulling from Docker Hub in my deployment yaml with wrong tag number
+* Networking Issues: I had to google "my ip address" and paste it in SQL networking to be able to access
+
+### Testing
+
+![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/5aa3283c-d9a6-45dd-9880-10bd3ddcc186)
+<img width="2548" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/b078a2a8-b574-497e-849b-8491ee91e7b7">
 
 ### Improvements
-* Cashier Web App uploaded to GKE successfuly
+
+<img width="2542" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/ef9ac0b4-3e1f-4a4e-aa35-45fc958a53b6">
+<img width="2541" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/3898b783-b2da-4672-bf2a-d97630fe700c">
+<img width="2554" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/fba9be48-3035-48fc-8e3b-f71062af4a86">
+<img width="2549" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/180314cf-7af9-4c59-b875-ee18441a2582">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -232,24 +275,35 @@ Connect Starbucks Cashier to GKE
 
 `date` May 11, 2023
 <br />
-`commit`
+`commit` [9715e2f](https://github.com/shohinsan/starbucks-enterprise-n-tier/commit/9715e2f0cc67d6a5ec17fd8eed11980aa9e28f06)
 <br />
 `topic` Starbucks Cashier
 
-## Day 10
-
-* uploaded to google cloud
-
 ### Purpose
 
-Connect Starbucks Cashier to GKE 
+Cashier Web App as it serves as a user-friendly platform for cashiers to manage customer orders efficiently. It provides an intuitive interface for order input, modification, and tracking, streamlining the cashiers' workflow. Additionally, its integration with the backend system and the Starbucks API ensures seamless, real-time updates and coordination with the customer-facing Starbucks app.
 
 ### Challenges
-* Challenges I had for this part was that I forgot to include platform linux because of m1 issue and later in the day I was able to figure out. Next, I uploaded Cashier successfuly and I saw that my cashier was unhealthy. From there, I went to ingress settings and changed the host to /login and it fixed it
 
+* Switching the Cashier Web App from localhost to the Kong API on Google Kubernetes Engine (GKE) posed several challenges. The major hurdle was ensuring a smooth transition and maintaining seamless communication between the web app and the API in the new environment. Additionally, dealing with potential networking and security issues related to the shift to a cloud-based solution was another complex aspect of the transition. Implementing the feature to select a drink, milk, and size in the Cashier Web App also presented its own set of challenges. Designing and integrating these additional user interfaces while ensuring they correctly interact with the backend system and provide a smooth user experience was a complex task.
 
-### Improvements
-* Cashier Web App uploaded to GKE successfuly
+### Testing
+
+<img width="2554" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/0bf89806-5aba-4fea-a340-57a9627e4766">
+
+## Day 10
+
+`date` May 13, 2023
+<br />
+`commit` []()
+<br />
+`topic` Final Testing
+
+### Testing
+
+![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/0ff65bb4-4bb5-4745-974e-34ae4fa08ff2)
+
+That concludes the project! I've opted not to include screenshots of every individual Postman request, as they've been functioning flawlessly. I take great pride in the work I've accomplished, and if you're interested in a brief demonstration of the project, you can find it at the beginning of the readme.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
