@@ -265,13 +265,13 @@ _Below is an example of how you can instruct your audience on installing and set
 
 #### starbucks-app
 * Login
-  * touch(1,5)
-  * touch(2,5)
-  * touch(3,5)
-  * touch(1,6)
-* Scan Order
+  * login
+* Scan
+  * touch (3,3) 
+* Pay
   * touch (2,2)
-  * touch (3,3)
+  * => touch (3,3)
+* Now that coffee was paid, active order is empty
 
 <!-- USAGE -->
 
