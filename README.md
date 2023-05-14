@@ -311,16 +311,16 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
-[Official Kong Documentation](https://docs.konghq.com/)
-[Kong GitHub Repository](https://github.com/Kong/kong)
-[Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
-[Spring Boot GitHub Repository](https://github.com/spring-projects/spring-boot)
-[Google Cloud SQL Documentation](https://cloud.google.com/sql/docs)
-[Google Cloud SQL GitHub Repository](https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-clients/google-cloud-sql)
-[Oracle Java Documentation](https://docs.oracle.com/en/java/)
-[OpenJDK GitHub Repository](https://github.com/openjdk/jdk)
-[Gradle Documentation](https://docs.gradle.org)
-[Gradle GitHub Repository](https://github.com/gradle/gradle)
+* [Official Kong Documentation](https://docs.konghq.com/)
+* [Kong GitHub Repository](https://github.com/Kong/kong)
+* [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
+* [Spring Boot GitHub Repository](https://github.com/spring-projects/spring-boot)
+* [Google Cloud SQL Documentation](https://cloud.google.com/sql/docs)
+* [Google Cloud SQL GitHub Repository](https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-clients/google-cloud-sql)
+* [Oracle Java Documentation](https://docs.oracle.com/en/java/)
+* [OpenJDK GitHub Repository](https://github.com/openjdk/jdk)
+* [Gradle Documentation](https://docs.gradle.org)
+* [Gradle GitHub Repository](https://github.com/gradle/gradle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
