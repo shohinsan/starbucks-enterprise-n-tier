@@ -7,6 +7,14 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+<!-- ABOUT THE PROJECT -->
+# Journal
+
+[Journal Link](https://github.com/shohinsan/starbucks-enterprise-n-tier/blob/master/JOURNAL.md)
+
+<!-- ABOUT THE PROJECT -->
+# Installation Guide
+
 <!-- PROJECT LOGO -->
 <br />
   <h3 align="center">Multi-Tier End-To-End Starbucks Enterprise Solutions</h3>
@@ -46,7 +54,6 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#journal">Journal</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -61,13 +68,12 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Describe your project before GKE Demo
+This is the comprehensive project for CMPE 172 (Enterprise Software Development) at San Jose State University, for the Spring 2023 semester. This project is a multi-tiered, end-to-end system composed of several elements:
 
-Consists of:
-* A
-* B
-* C
-
+* A web-based application enabling cashiers to oversee their customers' orders (referred to as the Cashier's app)
+* A mobile application facilitating payment for customer orders (termed as the Starbucks app)
+* A Starbucks API responsible for processing requests coming from both the Cashier's and Starbucks apps
+* A database designed to maintain records of orders and cards
 
 ## Architecture
 
@@ -238,8 +244,8 @@ apt-get update && apt-get install -y httpie
 ```
 2. Test apikey
 ```
-- http GET localhost:8080/ping apikey:2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ
-- curl http://localhost:8080/ping
+- http GET localhost:8080/api/ping apikey:2H3fONTa8ugl1IcVS7CjLPnPIS2Hp9dJ
+- curl http://localhost:8080/api/ping
 ```
 
 #### SQL Queries
@@ -264,14 +270,10 @@ _Below is an example of how you can instruct your audience on installing and set
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### starbucks-app
-* Login
-  * login
-* Scan
-  * touch (3,3) 
-* Pay
-  * touch (2,2)
-  * => touch (3,3)
-* Now that coffee was paid, active order is empty
+* Login: login
+* Scan: touch (3,3)
+* Pay: touch (2,2), => touch (3,3)
+* Pay again: => touch (3,3), touch (2,2), => touch (3,3)
 
 <!-- USAGE -->
 
@@ -285,36 +287,34 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Docker Demo
+- [x] Docker Demo
     - [x] Show the Starbucks API "Kong API Gateway" endpoint and API being used.  Demo this via a CURL ping test to API.
     - [x] Show the launch manifest / configuration for Starbucks Cash Register confirming connection to API via Kong with API Key
-    - [ ] Start up and Log into your Starbucks Cash Register App (your ported Spring MVC version)
-    - [ ] Show the launch command to run Starbucks "Mobile" App with connection to the same Kong API Gateway and API Key
-    - [ ] Start up the "Starbucks Mobile App" pointing out the "Store/Register" ID being used
-    - [ ] Connect to Backend MySQL Database and query the "New Starbucks Card" created by Starbucks Mobile App
+    - [x] Start up and Log into your Starbucks Cash Register App (your ported Spring MVC version)
+    - [x] Show the launch command to run Starbucks "Mobile" App with connection to the same Kong API Gateway and API Key
+    - [x] Start up the "Starbucks Mobile App" pointing out the "Store/Register" ID being used
+    - [x] Connect to Backend MySQL Database and query the "New Starbucks Card" created by Starbucks Mobile App
     - [x] Query to show the Card Number, Card Code and starting Balance in "Activated Status"
 
-- [ ] Google Cloud Demo
-    - [ ] A
-    - [ ] B
-    - [ ] C
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- Journal -->
-## Journal
-
-`Day 1`
-`Day 2`
-`Day 3`
-`Day 4`
-`Day 5`
-`Day 6`
-`Day 7`
-`Day 8`
-`Day 9`
-`Day 10`
+- [x] Google Cloud Demo
+    - [x] Support Admin Logins for Starbucks Employees
+    - [x] Cashiers App Deployed and running on GKE PODS
+    - [x] Supports Order Selection - Dring Type, Size, Milk Option
+    - [x] Rendering must use MVC by processing REST API calls from Starbucks API via Kong Gateway on GCP
+    - [x] Order Created via REST API call to Kong Endpoint with API key running on GCP
+    - [x] Order Payment Reflected on UI with Updated Balance Paid by Mobile App
+    - [x] External IP of Load Balancer used for Demo/Screnshots of Cashier's App
+    - [x] Evidence of Load Balancer with Heahtly Backends on GCP / GKE
+    - [x] Evidence of Healthy Running Starbucks API Pods in GKE
+    - [x] Evidence of Reachability Tests via Ping API call with Kong API key to Service Endpoint
+    - [x] Evidence of Running MySQL Instance on Cloud SQL
+    - [x] Evidence that MySQL IP is used by Cashier's App to Persist Order Data
+    - [x] Evidence that Data Stored in MySQL DB cooresponds to Data visible on Web UI
+    - [x] Evidence that RabbitMQ is Deployed in GKE or GCP and used in Project via changes to Spring Source Code
+    - [x] Evidence via Demo/Screenshots that the Functionality Works
+    - [x] Moible App should be connected to Starbucks API via Kong using API key
+    - [x] Cashier's App and other Apps in Demo must connect to Starbucks API via Kong using API Key
+    - [x] Source code for Apps shows evidence that REST API requests are using API Key Auth
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
