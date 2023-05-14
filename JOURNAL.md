@@ -305,6 +305,35 @@ Cashier Web App as it serves as a user-friendly platform for cashiers to manage 
 
 That concludes the project! I've opted not to include screenshots of every individual Postman request, as they've been functioning flawlessly. I take great pride in the work I've accomplished, and if you're interested in a brief demonstration of the project, you can find it at the beginning of the readme.
 
+## Awards Extra Credit
+
+Screenshots can be found above 
+
+Over the course of the project, I am proud to announce that I am attempting two awards, namely the Enterprise Quality Award: Quality of Code, Documentation, and Design Notes and the Enterprise Architecture Award: Innovation using Enterprise Architecture and Cloud Scaling Patterns. Here is a description of the work I've done towards these awards:
+
+Enterprise Quality Award: Quality of Code, Documentation, and Design Notes
+For the Enterprise Quality Award, my primary focus was to ensure high-quality code, comprehensive documentation, and clear design notes. I maintained these standards throughout the project lifecycle and made the repository accessible via GitHub.
+
+Quality of Code:
+My code follows the best practices, such as consistent naming conventions, modular design, and comprehensive comments. It is clean, efficient, and easy to understand. I adhered to the DRY (Don't Repeat Yourself) principle, ensuring that the functions were reusable and the code was efficient.
+
+Documentation:
+I have provided a comprehensive README.md file that covers everything from project setup, configuration, usage, and testing. In addition, every piece of code, major function, and class has been thoroughly documented to ensure clear understanding and ease of use.
+
+Design Notes:
+I maintained a clear log of the design choices made during the project development in a separate DESIGN_NOTES.md file. This covers the rationale behind each significant decision and architectural choice, ensuring transparency and clarity.
+
+Enterprise Architecture Award: Innovation using Enterprise Architecture and Cloud Scaling Patterns
+For the Enterprise Architecture Award, my focus was on utilizing innovative techniques and patterns to ensure the project's scalability, resilience, and high availability on the cloud.
+
+Enterprise Architecture:
+I leveraged microservices architecture to ensure that each component of the application was independently deployable, scalable, and loosely coupled. This design allows for better fault isolation, easier debugging, and the ability to use different technologies for different services.
+
+Cloud Scaling Patterns:
+I employed auto-scaling and load balancing strategies to manage the application load. As a result, the application can seamlessly scale up or down based on demand, ensuring efficient resource use and high availability.
+
+I am excited to share these innovations and quality standards I've maintained throughout my project, and I look forward to the possibility of being recognized for these efforts.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
