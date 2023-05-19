@@ -18,7 +18,7 @@
     <br />
     <br />
     <br />
-    <a href="#">View Demo</a>
+    <a href="https://www.youtube.com/watch?v=Ot0_yi5AhTA">View Demo</a>
     ·
     <a href="https://github.com/shohinsan/starbucks-enterprise-n-tier/issues">Report Bug</a>
     ·
@@ -46,9 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<p align="center">
-  <img src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/084d78f8-c720-4e94-9939-63c603464383" alt="My Image" width="800" height="auto">
-</p>
+![day 0 - cashier ui](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/31f0ae33-7615-4892-aa9c-d93115b31850)
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -61,9 +59,7 @@ This is the comprehensive project for CMPE 172 (Enterprise Software Development)
 
 ## Architecture
 
-<p align="center">
-  <img src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/5c612ce6-002f-4400-a0db-f259ebbc77d9" alt="My Image" width="800" height="auto">
-</p>
+![day 0 - architecture](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/b41c61ce-3222-4d77-a54d-ff86dff93f6e)
 
 The Cashier app and particularly the Starbucks API are designed for scalability, supported by multiple pods. They are capable of managing millions of user requests, and the load balancer assists in distributing these requests across the various pods - an external load balancer for the cashiers, and Kong's internal load balancer for all requests directed towards the Starbucks API.
 
@@ -93,9 +89,9 @@ Kong is an API gateway that provides a unified entry point for all your APIs and
 
 ### Testing
 
-![7  Jumpbox Http](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/055c6ab6-0201-449b-a30c-273373ef23b1)
-![9  Kong Curl 2](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/4dd860f0-c9e8-4073-8499-2f655abc68c0)
-![13  Final http Result](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/89b12cd2-7c99-408d-8cfd-e45a43a32be8)
+![day 1 - jumpbox http](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/8c12428a-94ff-42af-ad95-d65d65cd3c7d)
+![day 1 - kong curl](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/25a5d116-6813-4654-b14e-3976c3eda21f)
+![day 1 - kong http apikey](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/0edd3d3e-3a73-42f3-b3cd-fc3386eccf46)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -119,9 +115,8 @@ Also, another thing I attemted to implement, but again, failed, is to utilize Gi
 
 ### Testing
 
-<img width="1326" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/5029bc00-581d-4d8a-8ad7-4a3b9fdbbbf0">
-![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/184747c2-7245-4586-a780-7f967875219f)
-<img width="2550" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/608dd6e4-9a29-40a0-a792-0baa48645980">
+![day 2 - Actions Error](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/67c8bae8-9d81-4f43-b9ff-fb2eece2b77d)
+![day 2 - Rabbit Error](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/076475f4-f497-4e32-98b8-feb6cf1552eb)
 
 Therefore, I wasn't been able to accomplish these task while workin on my final project.
 
@@ -145,8 +140,8 @@ Implementing Spring Security alongside a load balancer in Google Kubernetes Engi
 
 ### Testing
 
-<img width="1718" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/691eafd2-f7b3-4a3e-b501-458deb6adaca">
-<img width="1726" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/71998b58-b53a-4e0a-913b-538a7458611d">
+![day 3 - admin screen](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/beb5b791-79f7-4885-84d2-95ef30109d9d)
+![day 3 - login](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/467aadd3-9d48-44e2-8af6-e2856733cdc5)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -168,7 +163,7 @@ I wanted to leverage Google Cloud SQL because it provides a fully-managed relati
 
 ### Testing
 
-<img width="2553" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/4416c839-011b-4bed-bff6-b9bb68b125b3">
+<img width="1708" alt="day 4 - cloud sql" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/e548ca53-bfc5-4c7b-848c-1742e70cc262">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -190,7 +185,7 @@ Before deploying the Starbucks API code, I confirmed that the API is at least st
 
 ### Testing
 
-<img width="2550" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/e0a85431-0807-4510-8bfe-ec07092fb41e">
+![day 5 - stateless session](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/0d7279c3-702b-4ca6-95c7-e1ca156bc957)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -224,18 +219,18 @@ I also used Postman to interact with the Kong API. By leveraging the environment
  
 Firstly, managing the environment variables can be complex, especially when dealing with different environments or configurations. Secondly, understanding the intricacies of the Kong API and its specific authentication methods requires additional research and knowledge. Lastly, accurately simulating various scenarios and handling edge cases during testing can be time-consuming and require meticulous attention to detail. Eventually, I changed current variables to meet Kong API requirements 
 
-<img width="2543" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/9305f2e0-6d85-4c7c-918a-8d0014f2c3d4">
+![day 7 - 1 ping](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/4f81ec5a-7db1-403c-b3b2-8e1a5ddbe3ae)
 
 ### Testing
 
-<img width="2550" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/46731f64-198e-4a86-a08e-d45cc9b5e6e6">
-<img width="2546" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/208a2471-4416-4dff-b891-9edb4bf07f51">
-<img width="2544" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/18c66cea-17ef-45df-82c3-0b8f61c0f840">
-<img width="2541" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/28ced06d-72d5-4130-b2b5-681de170c99b">
-<img width="2546" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/2db3efdc-00b2-450f-ba6a-5e724a13a242">
-<img width="2551" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/04f35b50-5e2e-498b-95de-267bd15d8835">
-<img width="2552" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/bc5f684f-91f3-4f43-988b-36f3c8dab639">
-<img width="2553" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/ed25f40f-f111-4bb9-8c18-105b66e33fa6">
+![day 7 - 2 new card](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/465395df-bf97-4be4-97ed-5702569176bf)
+![day 7 - 3 activate card](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/0c231512-84dc-4ad9-9b39-b53ed6ef7e79)
+![day 7 - 4 get cards](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/d29bfe61-0295-4832-afd9-ba4bce5fd4a7)
+![day 7 - 5 delete all cards](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/539a02cb-277c-4ef8-904b-fd65a9c49f09)
+![day 7 - 6 new order](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/1f64b203-5ccc-43d3-965b-6a5377b3ce20)
+![day 7 - 7 clear order](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/c0b72e91-a9e8-47a5-a66c-c2e286d31f92)
+![day 7 - 8 get order](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/b65b1e3b-b7c6-4374-a0c3-c4299c62dbfb)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -259,15 +254,20 @@ Main challenges I have faced were:
 
 ### Testing
 
-![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/5aa3283c-d9a6-45dd-9880-10bd3ddcc186)
-<img width="2548" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/b078a2a8-b574-497e-849b-8491ee91e7b7">
+![day 8 - docker hub](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/3b10c81a-c46e-4c80-84d1-08b9be7061ad)
+![day 8 - network](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/bae12fb4-83ce-4c26-a0a3-6200507b544a)
+
 
 ### Improvements
 
-<img width="2542" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/ef9ac0b4-3e1f-4a4e-aa35-45fc958a53b6">
-<img width="2541" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/3898b783-b2da-4672-bf2a-d97630fe700c">
-<img width="2554" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/fba9be48-3035-48fc-8e3b-f71062af4a86">
-<img width="2549" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/180314cf-7af9-4c59-b875-ee18441a2582">
+![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/a60f8ad7-865f-4d74-801e-146eb0bb2728)
+![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/e7354089-5961-4740-9e80-61cf94cabc1f)
+![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/bf7e460a-8ece-45a5-8cf3-ba161bea5227)
+![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/7fe94df7-215e-4ebd-ac6e-12872450bdce)
+![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/3a5dedc9-7866-4c3f-a041-ecb17d74beeb)
+
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -287,10 +287,6 @@ Cashier Web App as it serves as a user-friendly platform for cashiers to manage 
 
 * Switching the Cashier Web App from localhost to the Kong API on Google Kubernetes Engine (GKE) posed several challenges. The major hurdle was ensuring a smooth transition and maintaining seamless communication between the web app and the API in the new environment. Additionally, dealing with potential networking and security issues related to the shift to a cloud-based solution was another complex aspect of the transition. Implementing the feature to select a drink, milk, and size in the Cashier Web App also presented its own set of challenges. Designing and integrating these additional user interfaces while ensuring they correctly interact with the backend system and provide a smooth user experience was a complex task.
 
-### Testing
-
-<img width="2554" alt="image" src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/0bf89806-5aba-4fea-a340-57a9627e4766">
-
 ## Day 10
 
 `date` May 13, 2023
@@ -301,13 +297,11 @@ Cashier Web App as it serves as a user-friendly platform for cashiers to manage 
 
 ### Testing
 
-![image](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/0ff65bb4-4bb5-4745-974e-34ae4fa08ff2)
+![day 10 - testing](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/a9172520-3cdc-47f9-9837-5226706840f5)
 
 That concludes the project! I've opted not to include screenshots of every individual Postman request, as they've been functioning flawlessly. I take great pride in the work I've accomplished, and if you're interested in a brief demonstration of the project, you can find it at the beginning of the readme.
 
 ## Awards Extra Credit
-
-Screenshots can be found above 
 
 Over the course of the project, I am proud to announce that I am attempting two awards, namely the Enterprise Quality Award: Quality of Code, Documentation, and Design Notes and the Enterprise Architecture Award: Innovation using Enterprise Architecture and Cloud Scaling Patterns. Here is a description of the work I've done towards these awards:
 
@@ -321,7 +315,7 @@ Documentation:
 I have provided a comprehensive README.md file that covers everything from project setup, configuration, usage, and testing. In addition, every piece of code, major function, and class has been thoroughly documented to ensure clear understanding and ease of use.
 
 Design Notes:
-I maintained a clear log of the design choices made during the project development in a separate DESIGN_NOTES.md file. This covers the rationale behind each significant decision and architectural choice, ensuring transparency and clarity.
+I maintained a clear log of the design choices made during the project development in a separate README.md file. This covers the rationale behind each significant decision and architectural choice, ensuring transparency and clarity.
 
 Enterprise Architecture Award: Innovation using Enterprise Architecture and Cloud Scaling Patterns
 For the Enterprise Architecture Award, my focus was on utilizing innovative techniques and patterns to ensure the project's scalability, resilience, and high availability on the cloud.
@@ -330,7 +324,7 @@ Enterprise Architecture:
 I leveraged microservices architecture to ensure that each component of the application was independently deployable, scalable, and loosely coupled. This design allows for better fault isolation, easier debugging, and the ability to use different technologies for different services.
 
 Cloud Scaling Patterns:
-I employed auto-scaling and load balancing strategies to manage the application load. As a result, the application can seamlessly scale up or down based on demand, ensuring efficient resource use and high availability.
+I employed load balancing strategies to manage the application load. As a result, the application can seamlessly scale up or down based on demand, ensuring efficient resource use and high availability. When refreshing the page, it does not move to another pod because my ingress detects client ip
 
 I am excited to share these innovations and quality standards I've maintained throughout my project, and I look forward to the possibility of being recognized for these efforts.
 
