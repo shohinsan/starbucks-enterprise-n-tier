@@ -26,7 +26,7 @@
     <br />
     <br />
     <br />
-    <a href="#">View Demo</a>
+    <a href="https://www.youtube.com/watch?v=Ot0_yi5AhTA">View Demo</a>
     ·
     <a href="https://github.com/shohinsan/starbucks-enterprise-n-tier/issues">Report Bug</a>
     ·
@@ -61,10 +61,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<p align="center">
-  <img src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/084d78f8-c720-4e94-9939-63c603464383" alt="My Image" width="800" height="auto">
-</p>
-
+![day 0 - cashier ui](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/a9837736-eabc-494a-8f35-eaddddee6c26)
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -77,10 +74,7 @@ This is the comprehensive project for CMPE 172 (Enterprise Software Development)
 
 ## Architecture
 
-<p align="center">
-  <img src="https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/5c612ce6-002f-4400-a0db-f259ebbc77d9" alt="My Image" width="800" height="auto">
-</p>
-
+![day 0 - architecture](https://github.com/shohinsan/starbucks-enterprise-n-tier/assets/22685770/dd84a99f-01f1-44f6-b17d-c3f5b062e19b)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
